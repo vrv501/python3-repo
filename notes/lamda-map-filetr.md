@@ -15,7 +15,7 @@ Ex:
 def isFunc(element):
     return elemnt*2 == 0
 list_num = [1,2,3,45]
-list(map(isFunc, list_num))
+list(filter(isFunc, list_num))
 ```
 
 lamda arg: tranformation-on-arg
