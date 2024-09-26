@@ -1,0 +1,13 @@
+- heaps can either be min or max
+- for max, each node has value which is greater than all its descendants. vice-versa for min heap
+- the left and right child have no order, sicne they are both less than their parent.
+- A heap is **complete binary tree** as in, each node when added, must be added from left-to-right & each level must be filled before next level can be populated
+- A heap is basically keep track of max value at top and quickly remove it
+- A heap is represented using list where each index represnt as we traverse each level and left-to-right
+- Also usually in that list the 0th index is left empty while other indices are populated from left-to-right
+- Math: for node at index i(assuming 0th index is empty/left), left child: 2*i, right: 2*i + 1 . Similarly for node, we can find parent using i // 2
+- If you dont want index to be 0, then children will be at 2*i + 1, 2*i + 2. A parent for index is at (i-1)//2
+- Logic to insert: When adding a node, first append to list, then bubble it up to right position using helper methods: left_child, right_child, parent, swap_values. This loop will break when parent > curr_value or curr_val is at 0th index
+- Logic to remove. Directly remove 0th index and then take the right most value and put it at 0th index. Then sink down it to appropriate plcae by comparing both children and swapping max value among them to 0th index. Repeat until there's no value at child index or value at child index < curr_val
+- Time complexity: Insert, remove: O(logn) well techincally o(1) but sink down and bubbleup has worst case of plcaing node at bottom or top of tree height. Height of tree is log(n)
+- Priority ques are best implemnted using max heaps
