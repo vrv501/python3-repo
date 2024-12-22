@@ -1,8 +1,8 @@
 class Node:
-    def __init__(self, value) -> None:
-        self.value = value 
-        self.next = None 
-    
+    def __init__(self, val):
+        self.value = val 
+        self.next = None
+
     def __str__(self) -> str:
        return f"Value: {self.value}"
 
@@ -17,86 +17,84 @@ class LinkedList:
         Remove from index: O(N)
         Search: O(N) 
     '''
-    def __init__(self, value) -> None:
-        new_node = Node(value)
-        self.head = new_node
-        self.tail = new_node
+    def __init__(self, val):
+        self.head = Node(val)
+        self.tail = self.head 
         self.length = 1
     
-    def print_list(self) -> None:
-        print("LinkedList Length:", self.length)
-        temp = self.head
-        while temp is not None:
-            print(temp.value)
-            temp = temp.next
+    def print_list(self):
+        tmp = self.head 
+        while tmp is not None:
+            print(tmp.value)
+            tmp = tmp.next
     
-    def append(self, value) -> None:
+    def append(self, value):
         new_node = Node(value)
-        self.length += 1
-
-        # Appending to empty ll
-        if self.length == 1:
+        
+        if self.length == 0:
             self.head = new_node
-            self.tail = new_node
+            self.tail = self.head 
         else:
             self.tail.next = new_node
             self.tail = new_node
-    
-    def pop(self) -> Node:
-        if self.length == 0:
-            return None
-
-        prev = None
-        curr = self.head
-        # Get node prev to tail
-        while curr.next is not None:
-            prev = curr 
-            curr = curr.next
         
-        # Removing the only node in ll
-        if prev is None:
-            self.head = None 
-            self.tail = None 
-            self.length = 0
-            return curr 
-
-        self.tail = prev
-        prev.next = None 
-        self.length -= 1
-        return curr
-
-    def prepend(self, value) -> None:
-        new_node = Node(value)
         self.length += 1
 
-        # Prepending to empty ll
+    def pop(self):
+        if self.length == 0:
+            return None 
+            
+        node = self.tail 
+        self.length -= 1
+        
+        if self.length == 0:
+            self.head = None 
+            self.tail = self.head
+        else: 
+            prev = None 
+            curr = self.head 
+            while curr.next is not None:
+                prev = curr 
+                curr = curr.next 
+            prev.next = None 
+            self.tail = prev
+        return node 
+
+    def prepend(self, val):
+        new_node = Node(val)
+        self.length += 1 
         if self.length == 1:
-            self.head = new_node
-            self.tail = new_node
+            self.head = new_node 
+            self.tail = self.head 
         else:
-            new_node.next = self.head
+            new_node.next = self.head 
             self.head = new_node
 
-    def pop_first(self) -> Node:
+    def pop_first(self):
         if self.length == 0:
-            return None
+            return None 
         
-        curr = self.head
-        self.length -= 1
-        self.head = curr.next
+        node = self.head 
+        self.length -= 1 
         if self.length == 0:
-            self.tail = None 
-        return curr
+            self.head = None 
+            self.tail = self.head 
+        else:
+            self.head = self.head.next 
+        
+        node.next = None
+        return node 
     
-    def get(self, index) -> Node:
-        if index < 0 or index > self.length:
-            return None
+    def get(self, ind):
+        if ind < 0 or ind > self.length:
+            return None 
         
-        curr = self.head 
-        while index != 0:
-            curr = curr.next
-            index -= 1
-        return curr
+        tmp = self.head 
+        while ind != 0:
+            tmp = tmp.next 
+            ind -= 1 
+        
+        return tmp
 
     def set_value(self, index, value) -> bool:
         node = self.get(index)
@@ -141,24 +139,24 @@ class LinkedList:
             self.length -= 1
             return curr_node
     
-    def reverse(self) -> None:
-        if self.length == 0:
-            return
+    def reverse(self):
+        if self.head is None or self.head.next is None:
+            return 
         
-        # swap tail & head
-        curr = self.head 
+        tmp = self.head 
         self.head = self.tail 
-        self.tail = curr 
-
+        self.tail = tmp 
+        
         prev = None 
-        next = curr.next
-
-        while curr is not None:
+        curr = self.tail 
+        while curr.next is not None:
+            f = curr.next 
             curr.next = prev 
             prev = curr 
-            curr = next 
-            if next is not None:
-                next = next.next
+            curr = f 
+            f = f.next
+        
+        curr.next = prev
 
 new_ll = LinkedList(1)
 new_ll.append(2)

@@ -10,4 +10,6 @@
 - Logic to insert: When adding a node, first append to list, then bubble it up to right position using helper methods: left_child, right_child, parent, swap_values. This loop will break when parent > curr_value or curr_val is at 0th index
 - Logic to remove. Directly remove 0th index and then take the right most value and put it at 0th index. Then sink down it to appropriate plcae by comparing both children and swapping max value among them to 0th index. Repeat until there's no value at child index or value at child index < curr_val
 - Time complexity: Insert, remove: O(logn) well techincally o(1) but sink down and bubbleup has worst case of plcaing node at bottom or top of tree height. Height of tree is log(n)
-- Priority ques are best implemnted using max heaps
+- Priority queues are best implemnted using max heaps
+
+- Find kth smallest number in list: Keep adding numbers to max heap. When len of heap is > k, remove root since it will be max most elemet ensuring you aloways have elements less than K and finally when list parsing is one, root element will be k th smallest element.

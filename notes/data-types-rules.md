@@ -17,6 +17,7 @@ Can be positive and negative numbers
 ## Rules
 Use ALL_CAPS for global vars
 Use `_` while connecting words for var names
+Inner functions can only modify mutable outer function variables defined in local scope of outer function: https://hackthedeveloper.com/python-inner-nested-function
 
 ## Assignment
 Assigning a var to a list will point to the same list, which means any modifications to original var will also modify the subsequent var  
