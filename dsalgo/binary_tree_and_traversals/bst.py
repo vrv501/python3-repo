@@ -126,10 +126,8 @@ class BinarySearchTree:
         self.root = self.__delete_node(self.root, val)
     
     def BFS(self):
-        q = []
+        q = [self.root]
         r = []
-        curr = self.root 
-        q.append(curr)
         while q != []:
             rm = q.pop(0)
             r.append(rm.value)

@@ -14,10 +14,10 @@
          you find its left leaf node. Now set this node's right tree to curr_node's right child and left child to curr_node left child
        - finally delete the left subtree leaf node of curr_node's right child 
   ```
-- in breadth first search(**BFS**) we print curr node value, left child & right child and then move down. Essentially we print level wise from left to right
+- in breadth first search(**BFS**) we print curr node value, left child & right child and then move down(Use queue/list to pop curr_node in queue). Essentially we print level wise from left to right
   - useful for finding shortest path in unweighted graphs
 - In depth first search(**DFS**) there are 3 types:
-  - preOredr: print curr value, then keep printing all left childs until we encounter None, then for each left child start prinintg right children. Finally traverse right subtree in similar fashion. Useful for prefix notation (curr, all left, right)
-  - postOrder: Useful for postfix notation(left, right and then root)
-  - inorder: increasing order of tree values. useful to check validity of bst (left, root, right)
+  - preOredr: print curr value, then keep printing all left childs until we encounter None, then for each left child start prinintg right children. Finally traverse right subtree in similar fashion. Useful for prefix notation (curr, all left, right). print root, traverse left, traverse right
+  - postOrder: Useful for postfix notation(left, right and then root). traverse left, traverse right, print root, 
+  - inorder: increasing order of tree values. useful to check validity of bst, kth smallest value (left, root, right). traverse left, print root, traverse right
   
