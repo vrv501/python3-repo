@@ -35,13 +35,10 @@ def insertion_sort(inp_list):
 	"""
 	list_len = len(inp_list)
 	for i in range(1, list_len):
-		temp = inp_list[i]
 		j = i-1
-		while temp < inp_list[j] and j >= 0:
-			inp_list[j+1] = inp_list[j]
-			inp_list[j] = temp
+		while inp_list[j] > inp_list[j+1] and j > 0:
+			inp_list[j+1], inp_list[j] = inp_list[j], inp_list[j+1]
 			j-=1
-
 	return inp_list
 
 def merge_sort(inp_list):
