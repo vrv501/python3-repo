@@ -103,7 +103,7 @@ class BinarySearchTree:
                     prev = curr
                     curr = curr.left
                 if prev is not None:
-                    prev.left = None
+                    prev.left = curr.right
                 curr.left = node.left
                 curr.right = node.right
                 return curr
